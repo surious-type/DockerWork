@@ -10,7 +10,7 @@ CMD ["/usr/sbin/sshd","-D"]
 
 # PHP
 RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
-RUN sudo apt install php8.1-xml; sudo apt-get install php8.1-gd; sudo apt-get install php8.1-intl; sudo apt-get install php8.1-xsl; sudo apt-get install php8.1-ldap; sudo apt-get install php8.1-pgsql
+RUN sudo apt -y install php8.1-xml; sudo apt-get -y install php8.1-gd; sudo apt-get -y install php8.1-intl; sudo apt-get -y install php8.1-xsl; sudo apt-get -y install php8.1-ldap; sudo apt-get -y install php8.1-pgsql
 
 # NODEJS
 RUN sudo apt install npm; sudo apt install nodejs;
