@@ -13,9 +13,9 @@ RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php
 RUN sudo apt -y install php8.1-xml; sudo apt-get -y install php8.1-gd; sudo apt-get -y install php8.1-intl; sudo apt-get -y install php8.1-xsl; sudo apt-get -y install php8.1-ldap; sudo apt-get -y install php8.1-pgsql
 
 # NODEJS
-RUN sudo apt install npm; sudo apt install nodejs;
+RUN sudo apt -y install npm; sudo apt -y install nodejs;
 
 # NETWORK
-RUN apt install net-tools
+RUN apt install -y net-tools
 RUN apt install -y iproute2
-RUN apt install iputils-ping
+RUN apt install -y iputils-ping
