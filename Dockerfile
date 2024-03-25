@@ -9,7 +9,7 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 
 # PHP
-RUN sudo -y apt install software-properties-common;
+RUN sudo apt install -y software-properties-common;
 RUN sudo add-apt-repository ppa:ondrej/php;
 # RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
 # RUN sudo apt-get -y install php8.1-xml;
