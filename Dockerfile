@@ -8,25 +8,25 @@ RUN service ssh start
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 
-# RUN sudo apt upgrade -y;
-
 # PHP
-# RUN sudo apt install -y software-properties-common;
-# RUN sudo add-apt-repository ppa:ondrej/php;
-# RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
-# RUN sudo apt-get -y install php8.1-xml;
-# RUN sudo apt-get -y install php8.1-gd;
-# RUN sudo apt-get -y install php8.1-intl;
-# RUN sudo apt-get -y install php8.1-xsl;
-# RUN sudo apt-get -y install php8.1-ldap;
-# RUN sudo apt-get -y install php8.1-pgsql;
+RUN sudo apt install -y software-properties-common;
+RUN sudo add-apt-repository ppa:ondrej/php;
+RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
+RUN sudo apt-get -y install php8.1-xml;
+RUN sudo apt-get -y install php8.1-gd;
+RUN sudo apt-get -y install php8.1-intl;
+RUN sudo apt-get -y install php8.1-xsl;
+RUN sudo apt-get -y install php8.1-ldap;
+RUN sudo apt-get -y install php8.1-pgsql;
+RUN php -v;
+RUN php -m;
 
 # NODEJS
-RUN sudo apt install -y curl;
-RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
-    sudo apt-get install -y nodejs
-RUN npm -v;
-RUN node -v;
+# RUN sudo apt install -y curl;
+# RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+#     sudo apt-get install -y nodejs
+# RUN npm -v;
+# RUN node -v;
 
 # NETWORK
 # RUN apt install -y net-tools
