@@ -26,8 +26,7 @@ CMD ["/usr/sbin/sshd","-D"]
 # NODEJS
 RUN sudo apt install -y curl;
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-RUN export NVM_DIR="$HOME/.nvm"
-RUN . $NVM_DIR/nvm.sh
+RUN source ~/.bashrc
 RUN nvm install 20;
 # RUN sudo apt -y install npm; sudo apt -y install nodejs;
 RUN npm -v;
