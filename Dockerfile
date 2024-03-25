@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-SHELL ["/bin/bash", "-c"]
+# SHELL ["/bin/bash", "-c"]
 
 # SSH
 RUN apt update && apt install  openssh-server sudo -y
