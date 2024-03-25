@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 # SSH
 RUN apt update && apt install  openssh-server sudo -y
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 dev 
@@ -24,8 +26,7 @@ CMD ["/usr/sbin/sshd","-D"]
 # NODEJS
 RUN sudo apt install -y curl;
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-RUN export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+RUN . $NVM_DIR/nvm.sh
 RUN nvm install 20;
 # RUN sudo apt -y install npm; sudo apt -y install nodejs;
 RUN npm -v;
