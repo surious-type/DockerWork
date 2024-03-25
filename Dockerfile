@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+RUN sudo apt upgrade -y
+
 # SSH
 RUN apt update && apt install  openssh-server sudo -y
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 dev 
@@ -20,10 +22,11 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN sudo apt-get -y install php8.1-pgsql;
 
 # NODEJS
-RUN sudo apt install -y curl;
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
-RUN nvm install 20;
+# RUN sudo apt install -y curl;
+# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
+# RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
+# RUN nvm install 20;
+RUN sudo apt -y install npm; sudo apt -y install nodejs;
 RUN npm -v;
 RUN node -v;
 
