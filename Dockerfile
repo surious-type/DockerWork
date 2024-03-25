@@ -30,9 +30,9 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN nvm install 20;
 # RUN sudo apt -y install npm; sudo apt -y install nodejs;
 
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
     sudo apt-get install -y nodejs
-RUN npm -v;
+# RUN npm -v;
 RUN node -v;
 
 # NETWORK
