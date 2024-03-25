@@ -8,7 +8,7 @@ RUN service ssh start
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 
-RUN sudo apt upgrade -y;
+# RUN sudo apt upgrade -y;
 
 # PHP
 # RUN sudo apt install -y software-properties-common;
@@ -22,11 +22,12 @@ RUN sudo apt upgrade -y;
 # RUN sudo apt-get -y install php8.1-pgsql;
 
 # NODEJS
-# RUN sudo apt install -y curl;
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-# RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh";
-# RUN nvm install 20;
-RUN sudo apt -y install npm; sudo apt -y install nodejs;
+RUN sudo apt install -y curl;
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
+RUN export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+RUN nvm install 20;
+# RUN sudo apt -y install npm; sudo apt -y install nodejs;
 RUN npm -v;
 RUN node -v;
 
