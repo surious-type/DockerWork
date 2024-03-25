@@ -22,7 +22,7 @@ CMD ["/usr/sbin/sshd","-D"]
 # NODEJS
 RUN sudo apt install -y curl;
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-RUN . ~/.zshrc;
+RUN exec bash;
 RUN nvm install 20;
 RUN npm -v;
 RUN node -v;
