@@ -22,17 +22,10 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN sudo apt-get -y install php8.1-pgsql;
 
 # NODEJS
-# RUN sudo apt install -y curl;
-# RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
-# RUN source ~/.bashrc
-# RUN export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-# RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-# RUN nvm install 20;
-# RUN sudo apt -y install npm; sudo apt -y install nodejs;
-
+RUN sudo apt install -y curl;
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
     sudo apt-get install -y nodejs
-# RUN npm -v;
+RUN npm -v;
 RUN node -v;
 
 # NETWORK
