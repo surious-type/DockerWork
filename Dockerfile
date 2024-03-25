@@ -24,13 +24,13 @@ RUN php -v;
 RUN php -m;
 
 # NODEJS
-# RUN sudo apt install -y curl;
-# RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
-#     sudo apt-get install -y nodejs
-# RUN npm -v;
-# RUN node -v;
+RUN sudo apt install -y curl;
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
+    sudo apt-get install -y nodejs
+RUN npm -v;
+RUN node -v;
 
 # NETWORK
-# RUN apt install -y net-tools
-# RUN apt install -y iproute2
-# RUN apt install -y iputils-ping
+RUN apt install -y net-tools
+RUN apt install -y iproute2
+RUN apt install -y iputils-ping
