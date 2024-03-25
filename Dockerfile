@@ -30,10 +30,8 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN nvm install 20;
 # RUN sudo apt -y install npm; sudo apt -y install nodejs;
 
-SHELL ["/bin/bash", "--login", "-i", "-c"]
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-RUN source /root/.bashrc && nvm install 20
-SHELL ["/bin/bash", "--login", "-c"]
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+    sudo apt-get install -y nodejs
 RUN npm -v;
 RUN node -v;
 
