@@ -20,7 +20,7 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN sudo apt-get -y install php8.1-pgsql;
 
 # NODEJS
-RUN sudo apt install curl;
+RUN sudo apt install -y curl;
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash;
 RUN nvm install 20;
 RUN npm -v;
