@@ -19,12 +19,13 @@ CMD ["/usr/sbin/sshd","-D"]
 # RUN sudo apt-get -y install php8.1-ldap;
 # RUN sudo apt-get -y install php8.1-pgsql;
 
-# # NODEJS
-RUN sudo apt -y install npm; sudo apt -y install nodejs;
+# NODEJS
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+RUN nvm install 20;
 RUN npm -v;
 RUN node -v;
 
-# # NETWORK
+# NETWORK
 # RUN apt install -y net-tools
 # RUN apt install -y iproute2
 # RUN apt install -y iputils-ping
