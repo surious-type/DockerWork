@@ -9,8 +9,8 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 
 # PHP
-RUN sudo apt install -y software-properties-common;
-RUN sudo add-apt-repository ppa:ondrej/php;
+# RUN sudo apt install -y software-properties-common;
+# RUN sudo add-apt-repository ppa:ondrej/php;
 # RUN sudo apt-get install php8.1; sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
 # RUN sudo apt-get -y install php8.1-xml;
 # RUN sudo apt-get -y install php8.1-gd;
@@ -20,7 +20,9 @@ RUN sudo add-apt-repository ppa:ondrej/php;
 # RUN sudo apt-get -y install php8.1-pgsql;
 
 # # NODEJS
-# RUN sudo apt -y install npm; sudo apt -y install nodejs;
+RUN sudo apt -y install npm; sudo apt -y install nodejs;
+RUN npm -v;
+RUN node -v;
 
 # # NETWORK
 # RUN apt install -y net-tools
