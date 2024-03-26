@@ -34,3 +34,8 @@ RUN node -v;
 RUN apt install -y net-tools
 RUN apt install -y iproute2
 RUN apt install -y iputils-ping
+
+RUN sudo apt install postgresql postgresql-contrib
+RUN sudo systemctl start postgresql.service
+RUN sudo -i -u postgres
+RUN psql -c "alter user postgres with password 'qwerty-123'"
