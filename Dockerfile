@@ -11,7 +11,7 @@ CMD ["/usr/sbin/sshd","-D"]
 # # PHP
 # RUN sudo apt install -y software-properties-common;
 # RUN sudo add-apt-repository ppa:ondrej/php;
-# RUN DEBIAN_FRONTEND=noninteractive TZ=Europe/Moscow apt-get -y install tzdata
+RUN DEBIAN_FRONTEND=noninteractive TZ=Europe/Moscow apt-get -y install tzdata
 # RUN sudo apt-get -y install php8.1;
 # RUN sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
 # RUN sudo apt-get -y install php8.1-xml;
