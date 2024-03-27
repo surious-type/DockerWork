@@ -31,7 +31,7 @@ RUN npm -v;
 RUN node -v;
 
 # GIT
-RUN sudo apt install git
+RUN sudo apt -y install git
 RUN git --version
 
 # NETWORK
