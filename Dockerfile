@@ -14,12 +14,13 @@ RUN sudo add-apt-repository ppa:ondrej/php;
 RUN DEBIAN_FRONTEND=noninteractive TZ=Europe/Moscow apt-get -y install tzdata
 RUN sudo apt-get -y install php8.1;
 RUN sudo update-alternatives --set php /usr/bin/php8.1; sudo apt-get update;
-RUN sudo apt-get -y install php8.1-xml;
-RUN sudo apt-get -y install php8.1-gd;
-RUN sudo apt-get -y install php8.1-intl;
-RUN sudo apt-get -y install php8.1-xsl;
-RUN sudo apt-get -y install php8.1-ldap;
-RUN sudo apt-get -y install php8.1-pgsql;
+RUN sudo apt-get -y install php8.1*;
+#RUN sudo apt-get -y install php8.1-xml;
+#RUN sudo apt-get -y install php8.1-gd;
+#RUN sudo apt-get -y install php8.1-intl;
+#RUN sudo apt-get -y install php8.1-xsl;
+#RUN sudo apt-get -y install php8.1-ldap;
+#RUN sudo apt-get -y install php8.1-pgsql;
 RUN php -v;
 RUN php -m;
 
