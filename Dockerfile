@@ -45,4 +45,4 @@ RUN apt install -y iputils-ping
 RUN apt install -y apache2
 
 # GITLAB-RUNNER
-RUN apt-get install -y gitlab-runner
+RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
