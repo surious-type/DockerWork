@@ -46,3 +46,4 @@ RUN apt install -y apache2
 
 # GITLAB-RUNNER
 RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+RUN sudo apt-get install gitlab-runner
