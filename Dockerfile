@@ -40,3 +40,6 @@ RUN git --version
 RUN apt install -y net-tools
 RUN apt install -y iproute2
 RUN apt install -y iputils-ping
+
+# APACHE2
+RUN apt install -y apache2
