@@ -43,3 +43,6 @@ RUN apt install -y iputils-ping
 
 # APACHE2
 RUN apt install -y apache2
+
+# GITLAB-RUNNER
+RUN apt-get install -y gitlab-runner
