@@ -36,6 +36,10 @@ RUN node -v;
 RUN sudo apt -y install git
 RUN git --version
 
+# GITLAB-RUNNER
+RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
+RUN sudo apt-get install gitlab-runner
+
 # NETWORK
 RUN apt install -y net-tools
 RUN apt install -y iproute2
@@ -43,7 +47,5 @@ RUN apt install -y iputils-ping
 
 # APACHE2
 RUN apt install -y apache2
-
-# GITLAB-RUNNER
-RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
-RUN sudo apt-get install gitlab-runner
+RUN apt install -y libapache2-mod-php8.1
+RUN CMD ["apache2ctl", "-D", "FOREGROUND"]
