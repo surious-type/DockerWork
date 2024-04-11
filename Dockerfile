@@ -48,4 +48,3 @@ RUN apt install -y iputils-ping
 # APACHE2
 RUN apt install -y apache2
 RUN apt install -y libapache2-mod-php8.1
-RUN CMD ["apache2ctl", "-D", "FOREGROUND"]
