@@ -36,10 +36,6 @@ RUN node -v;
 RUN sudo apt -y install git
 RUN git --version
 
-# GITLAB-RUNNER
-RUN curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | sudo bash
-RUN sudo apt-get install gitlab-runner
-
 # NETWORK
 RUN apt install -y net-tools
 RUN apt install -y iproute2
