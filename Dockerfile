@@ -40,6 +40,6 @@ RUN apt install -y net-tools
 RUN apt install -y iproute2
 RUN apt install -y iputils-ping
 
-APACHE2
+# APACHE2
 RUN apt install -y apache2
 RUN apt install -y libapache2-mod-php8.1
