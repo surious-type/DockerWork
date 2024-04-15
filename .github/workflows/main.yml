@@ -20,7 +20,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          tags: myimage:latest
+          tags: server-prod-php8.0:latest
           outputs: type=docker,dest=/tmp/myimage.tar
       -
         name: Upload artifact
