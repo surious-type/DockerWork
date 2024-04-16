@@ -52,4 +52,3 @@ RUN apt install -y apache2
 RUN apt install -y libapache2-mod-php${PHP_VERSION}
 RUN a2enmod php${PHP_VERSION}
 RUN a2enmod rewrite
-CMD ["apache2ctl", "start"]
