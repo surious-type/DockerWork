@@ -30,9 +30,7 @@ jobs:
           path: /tmp/myimage.tar 
       - name: 'Create Release'
         shell: bash
-        run: |
-          for f in redumper-*.zip; do FILES+=" $f"; done
-          gh release create --generate-notes ${{ env.release_name }} $FILES
+        run: gh release create --generate-notes ${{ env.release_name }} /tmp/myimage.tar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
