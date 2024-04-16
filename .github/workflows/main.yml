@@ -31,6 +31,10 @@ jobs:
       -
         name: Release
         uses: softprops/action-gh-release@v2
+        with:
+          files: /tmp/myimage.tar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   use:
     runs-on: ubuntu-latest
