@@ -8,7 +8,7 @@ RUN service ssh start
 EXPOSE 22
 CMD ["/usr/sbin/sshd","-D"]
 
-ENV PHP_VERSION="8.0"
+ENV PHP_VERSION="8.2"
 
 # PHP
 RUN sudo apt install -y software-properties-common;
