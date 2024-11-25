@@ -33,6 +33,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
     sudo apt-get install -y nodejs
 RUN npm -v;
 RUN node -v;
+RUN npm install puppeteer --location=global
 
 # GIT
 RUN sudo apt -y install git
