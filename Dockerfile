@@ -34,6 +34,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - &&\
 RUN npm -v;
 RUN node -v;
 RUN npm install puppeteer --location=global
+RUN npx puppeteer browsers install chrome
 
 # GIT
 RUN sudo apt -y install git
