@@ -25,7 +25,9 @@ RUN sudo apt-get -y install php${PHP_VERSION}-ldap;
 RUN sudo apt-get -y install php${PHP_VERSION}-pgsql;
 RUN sudo apt-get -y install php${PHP_VERSION}-zip;
 
+ENV PHP_IDE_CONFIG 'serverName=dev'
 RUN sudo apt-get -y install php${PHP_VERSION}-xdebug;
+RUN ls /usr/local/etc/php/conf.d
 RUN echo "xdebug.mode=debug,coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
