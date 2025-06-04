@@ -24,11 +24,10 @@ RUN sudo apt-get -y install php${PHP_VERSION}-xsl;
 RUN sudo apt-get -y install php${PHP_VERSION}-ldap;
 RUN sudo apt-get -y install php${PHP_VERSION}-pgsql;
 RUN sudo apt-get -y install php${PHP_VERSION}-zip;
-RUN sudo apt-get -y install php-xdebug \
-    && docker-php-ext-enable xdebug
-    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
-    && echo "xdebug.client_host = host.docker.internal" >>
-/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
+RUN sudo apt-get -y install php-xdebug;
+RUN sudo docker-php-ext-enable xdebug;
+RUN sudo echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
+RUN sudo echo "xdebug.client_host = host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 RUN sudo apt-get -y install php${PHP_VERSION}-mbstring;
 RUN sudo apt-get -y install php${PHP_VERSION}-json;
 RUN sudo apt-get -y install php${PHP_VERSION}-curl;
