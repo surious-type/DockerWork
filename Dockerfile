@@ -27,14 +27,13 @@ RUN sudo apt-get -y install php${PHP_VERSION}-zip;
 
 ENV PHP_IDE_CONFIG 'serverName=dev'
 RUN sudo apt-get -y install php${PHP_VERSION}-xdebug;
-RUN php -i | grep 'php.ini'
-RUN ls /usr/local/etc/php/conf.d
-RUN echo "xdebug.mode=debug,coverage" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.start_with_request = yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.client_port=9003" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.log=/var/log/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-RUN echo "xdebug.idekey = PHPSTORM" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN echo "[xdebug]" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.mode=debug,coverage" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.start_with_request = yes" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.client_host=host.docker.internal" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.client_port=9003" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.log=/var/log/xdebug.log" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.idekey = PHPSTORM" >> /etc/php/${PHP_VERSION}/cli/php.ini
 
 RUN sudo apt-get -y install php${PHP_VERSION}-mbstring;
 RUN sudo apt-get -y install php${PHP_VERSION}-json;
