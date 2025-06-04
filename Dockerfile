@@ -36,7 +36,6 @@ RUN echo "xdebug.log=/var/log/xdebug.log" >> /etc/php/${PHP_VERSION}/cli/php.ini
 RUN echo "xdebug.idekey = PHPSTORM" >> /etc/php/${PHP_VERSION}/cli/php.ini
 
 RUN sudo apt-get -y install php${PHP_VERSION}-mbstring;
-RUN sudo apt-get -y install php${PHP_VERSION}-json;
 RUN sudo apt-get -y install php${PHP_VERSION}-curl;
 RUN php -v;
 RUN php -m;
