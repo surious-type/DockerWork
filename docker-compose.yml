@@ -1,0 +1,30 @@
+services:
+  dev1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev1
+    restart: always
+    tty: true
+    volumes:
+      - ./dev1_projects:/home/dev/projects
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+          cpus: "1.0"
+
+  dev2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dev2
+    restart: always
+    tty: true
+    volumes:
+      - ./dev2_projects:/home/dev/projects
+    deploy:
+      resources:
+        limits:
+          memory: 1g
+          cpus: "1.0"
