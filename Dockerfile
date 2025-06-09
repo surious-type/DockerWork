@@ -44,6 +44,4 @@ RUN apt install -y git
 # Network utils
 RUN apt install -y net-tools iproute2 iputils-ping
 
-USER dev
-
 WORKDIR /home/dev
