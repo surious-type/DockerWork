@@ -2,16 +2,21 @@ FROM ubuntu:22.04
 
 # Создание пользователя и SSH
 RUN apt update && apt install -y openssh-server sudo
-RUN useradd -rm -d /home/dev -s /bin/bash -g root -G sudo -u 1000 dev
+RUN useradd -ms /bin/bash -g root -G sudo -u 1000 dev
 RUN echo 'dev:qwerty-123' | chpasswd
+
+USER dev
+
+WORKDIR /home/dev
+
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /home/dev/projects && chown dev:root /home/dev/projects
-RUN echo "Hello"
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
 ENV PHP_VERSION="8.2"
+ENV PHP_XDEBUG="/etc/php/${PHP_VERSION}/mods-available/xdebug.ini"
 
 # Установка PHP
 RUN apt install -y software-properties-common
@@ -24,13 +29,12 @@ RUN apt-get update && apt-get install -y \
   php${PHP_VERSION}-curl
 
 # Настройка Xdebug
-RUN echo "[xdebug]" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.mode=debug,coverage" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.start_with_request = yes" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.client_host=host.docker.internal" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.client_port=9003" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.log=/var/log/xdebug.log" >> /etc/php/${PHP_VERSION}/cli/php.ini && \
-    echo "xdebug.idekey = PHPSTORM" >> /etc/php/${PHP_VERSION}/cli/php.ini
+RUN echo "xdebug.mode=debug,coverage" >> ${PHP_XDEBUG} && \
+    echo "xdebug.start_with_request=yes" >> ${PHP_XDEBUG} && \
+    echo "xdebug.client_host=127.0.0.1" >> ${PHP_XDEBUG} && \
+    echo "xdebug.client_port=9003" >> ${PHP_XDEBUG} && \
+    echo "xdebug.log=/var/log/xdebug.log" >> ${PHP_XDEBUG} && \
+    echo "xdebug.idekey=PHPSTORM" >> ${PHP_XDEBUG}
 
 # Node.js
 RUN apt install -y curl
@@ -43,5 +47,3 @@ RUN apt install -y git
 
 # Network utils
 RUN apt install -y net-tools iproute2 iputils-ping
-
-WORKDIR /home/dev/projects
