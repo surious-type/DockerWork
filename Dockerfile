@@ -5,10 +5,6 @@ RUN apt update && apt install -y openssh-server sudo
 RUN useradd -ms /bin/bash -g root -G sudo -u 1000 dev
 RUN echo 'dev:qwerty-123' | chpasswd
 
-USER dev
-
-WORKDIR /home/dev
-
 RUN mkdir -p /var/run/sshd
 RUN mkdir -p /home/dev/projects && chown dev:root /home/dev/projects
 
@@ -47,3 +43,7 @@ RUN apt install -y git
 
 # Network utils
 RUN apt install -y net-tools iproute2 iputils-ping
+
+USER dev
+
+WORKDIR /home/dev
